@@ -1,5 +1,5 @@
 {
-  "name": "medify-infinite-scroll",
+  "name": "medify",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -12,8 +12,10 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
+    "@angular/cli": "~8.3.26",
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
+    "@angular/compiler-cli": "~8.2.14",
     "@angular/core": "~8.2.14",
     "@angular/forms": "~8.2.14",
     "@angular/platform-browser": "~8.2.14",
@@ -21,8 +23,10 @@
     "@angular/router": "~8.2.14",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "bootstrap": "^5.2.3",
+    "express": "^4.18.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "typescript": "~3.5.3",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -44,6 +48,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+     "typescript": "~3.5.3"
   }
 }

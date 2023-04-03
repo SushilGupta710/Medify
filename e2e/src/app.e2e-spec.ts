@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('medify-infinite-scroll app is running!');
+    expect(page.getTitleText()).toEqual('medify app is running!');
   });
 
   afterEach(async () => {
