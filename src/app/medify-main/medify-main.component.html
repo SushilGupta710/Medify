@@ -1,0 +1,36 @@
+<main>
+    <div class="album py-5 bg-light" *ngIf="arrayImageData">
+        <div class="card-container">
+            <div class="medicines" *ngFor="let data of arrayImageData">
+                <div class="med-img" [title]="data.name">
+                    <img [src]="data.src" alt="">
+                </div>
+                <div class="med-content">
+                    <div class="med-name" [title]="data.name">
+                        <h4>{{data.name}}</h4>
+                    </div>
+                    <div class="med-price" [title]="data.price">
+                        <h5> {{cartService.currencyFormat(data.price)}} </h5>
+                    </div>
+                    <div class="med-brand" [title]="data.brand">
+                        <b> {{data.brand}} </b>
+                    </div>
+
+                    <p [title]="data.description" class="med-description">{{this.trimDescription(data.description)}}</p>
+
+
+                </div>
+
+                <div class="med-add-to-cart" title="Add to cart">
+                    <button type="button" class="btn btn-dark" (click)="addToCart(data)">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="back-to-top" (click)="backToTopBtn()">
+    <i class="fa-solid fa-arrow-up"></i>
+</div>
+
+<router-outlet></router-outlet>
