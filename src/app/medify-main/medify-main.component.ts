@@ -19,16 +19,23 @@ export class MedifyMainComponent implements OnInit {
   arrayImageData = [];
   count: number = 1;
   pageNumber: number = 1;
-  loader:boolean = false;
-  snackbar:boolean = false;
+  loader: boolean = false;
+  snackbar: boolean = false;
 
   ngOnInit() {
     this.getImage()
   }
 
   onScroll() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      this.getImage();
+    try {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 1 >=
+        document.documentElement.scrollHeight
+      ) {
+        this.getImage();
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
