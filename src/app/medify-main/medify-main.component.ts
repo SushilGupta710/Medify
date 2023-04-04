@@ -12,7 +12,6 @@ export class MedifyMainComponent implements OnInit {
 
   @HostListener('document:scroll', ['$event'])
   onWindowScroll(event): void {
-    // console.log(event.target)
     this.onScroll();
   }
 
@@ -87,8 +86,7 @@ export class MedifyMainComponent implements OnInit {
   }
 
   backToTopBtn() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   addToCart(medcine: MedicinesModel) {
