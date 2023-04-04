@@ -1,5 +1,9 @@
 <main>
+    <div class="alert alert-success alert-success-snakbar" *ngIf="snackbar" role="alert">
+        Item Added to Cart.
+      </div>
     <div class="album py-5 bg-light" *ngIf="arrayImageData">
+        
         <div class="card-container">
             <div class="medicines" *ngFor="let data of arrayImageData">
                 <div class="med-img" [title]="data.name">
@@ -32,5 +36,9 @@
 <div class="back-to-top" (click)="backToTopBtn()">
     <i class="fa-solid fa-arrow-up"></i>
 </div>
+
+<div class="spinner-border" *ngIf="loader" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 
 <router-outlet></router-outlet>

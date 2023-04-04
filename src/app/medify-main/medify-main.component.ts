@@ -10,14 +10,17 @@ export class MedifyMainComponent implements OnInit {
 
   constructor(public cartService: CartServiceService) { }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll(): void {
+  @HostListener('document:scroll', ['$event'])
+  onWindowScroll(event): void {
+    // console.log(event.target)
     this.onScroll();
   }
 
   arrayImageData = [];
   count: number = 1;
   pageNumber: number = 1;
+  loader:boolean = false;
+  snackbar:boolean = false;
 
   ngOnInit() {
     this.getImage()
@@ -31,6 +34,7 @@ export class MedifyMainComponent implements OnInit {
 
   async getImage() {
     try {
+      this.loader = true
       const res = await fetch(
         `https://jsonplaceholder.typicode.com/posts?_limit=12_page=${this.pageNumber}`
       );
@@ -53,15 +57,14 @@ export class MedifyMainComponent implements OnInit {
       });
 
       this.pageNumber += 1;
+      this.loader = false
     } catch (error) {
-
+      this.loader = false
       console.log('There was an error', error);
     }
 
 
   }
-
-
 
   generateRandomBrand() {
     const words = ['Sun Pharmaceutical', 'Cipla Ltd', 'Zydus Lifesciences', 'Alkem Laboratories', 'Lupin Ltd', 'IPCA Laboratories', 'Aurobindo Pharma', 'Biocon Ltd'];
@@ -82,6 +85,10 @@ export class MedifyMainComponent implements OnInit {
   }
 
   addToCart(medcine: MedicinesModel) {
+    this.snackbar = true;
+    setTimeout(() => {
+      this.snackbar = false
+    }, 1000);
     this.cartService.setCartItems(medcine);
   }
 

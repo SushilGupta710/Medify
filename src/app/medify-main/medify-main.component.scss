@@ -11,6 +11,11 @@
   margin: 0% 2% 2% 0%;
   width: 250px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  @media (max-width: 920px) {
+    
+    margin-bottom: 10%;
+  } //920px
+
 }
 
 .med-add-to-cart {
@@ -22,7 +27,7 @@
 
 .med-content {
   margin: 5% 0% 5% 5%;
-}
+ }
 
 .med-img {
   img {
@@ -52,4 +57,22 @@
 .med-price {
   text-align: center;
   color: grey;
+}
+
+.spinner-border{
+  position: fixed;
+  bottom: 2%;
+  left: 50%;
+}
+
+.alert-success-snakbar{
+  width: 20%;
+  margin: auto;
+  position: fixed;
+  bottom: 3%;
+  left: 40%;
+  @media (max-width: 920px) {
+    width: 50%;
+    left: 25%;
+  } //920px
 }
